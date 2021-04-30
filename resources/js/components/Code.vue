@@ -128,7 +128,7 @@
                     .then((response) => {
                     this.usd_value = (response.data.conversion).toFixed(2);
                 })
-             }, 5000);
+             }, 30000);
 
         },
 
