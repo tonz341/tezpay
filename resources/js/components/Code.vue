@@ -82,7 +82,7 @@
         },
         computed: {
             generatedLink(){
-                return window.location.origin + this.link.uid;
+                return window.location.origin +'/'+this.link.uid;
             },
 
             _usdPrice() {
