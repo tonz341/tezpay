@@ -18,6 +18,11 @@ class LinkController extends Controller
 
         $link = Link::where('uid',$product)->first();
         $usd = Cache::get('XTZUSDT');
+
+        if(!$link) {
+            $link = collect([]);
+        }
+
         return view('link', ['link' => $link, 'usd' => $usd]);
     }
 

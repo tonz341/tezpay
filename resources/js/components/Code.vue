@@ -6,7 +6,7 @@
             <div class="card-body" style="padding: 0.50rem">
                 <!--{{ link }}-->
 
-                    <div class="row">
+                    <div class="row" v-if="link.address">
                         <div class="form-group col-12">
                             <label class="form-label"> Pay for {{ link.name }} </label>
 
@@ -29,11 +29,6 @@
                             </div>
                         </div>
 
-                        <!--<div class="form-group col-6">-->
-                            <!--<label class="form-label"> Price </label>-->
-                            <!--<input v-model="data.price" type="number" class="form-control" required>-->
-                        <!--</div>-->
-
                         <div class="form-group col-12">
                             <label class="form-label"> Shortlink </label>
                             <div class="custom-link" @click="copyLink">
@@ -52,13 +47,14 @@
 
                             <small class="float-right" style="margin-top: 5px">Valid until: {{ link.expired_at }}</small>
                         </div>
-
-
-                        <!--<div class="form-group col-12 ">-->
-                            <!--<button class="btn btn-primary form-control btn-lg btn-custom" type="submit">Create shortlink</button>-->
-                        <!--</div>-->
-
                     </div>
+
+                <div class="row" v-if="link">
+                    <div class="form-group col-12 text-center">
+                        <h1 class="form-label"> Oops!</h1> <br>
+                        <label class="form-label"> Product not found</label>
+                    </div>
+                </div>
 
             </div>
         </div>
