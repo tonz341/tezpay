@@ -1,7 +1,9 @@
 <template>
         <div class="card card-custom" style="margin-top: 50px">
             <div class="card-header card-header-custom text-center">
-                <img src="/images/logo.png" alt="Tezpay.jpg" class="third-width">
+                <a href="/">
+                    <img src="/images/logo.png" alt="Tezpay.jpg" class="third-width">
+                </a>
             </div>
             <div class="card-body" style="padding: 0.50rem">
                 <form @submit.prevent="generate">

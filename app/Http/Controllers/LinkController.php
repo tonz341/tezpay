@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Spatie\Image\Manipulations;
 use Webpatser\Uuid\Uuid;
@@ -47,7 +48,7 @@ class LinkController extends Controller
 
     private function uidGenerator(){
 
-        $uid = implode("",array_map(create_function('$s','return substr($s,mt_rand(0,strlen($s)),1);'),array_fill(0,7,"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")));
+        $uid = Str::random(7);
         $link = Link::where('uid',$uid)->first();
 
         if($link) {

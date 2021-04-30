@@ -1,7 +1,9 @@
 <template>
         <div class="card card-custom" style="margin-top: 50px">
             <div class="card-header card-header-custom text-center">
-                <img src="/images/logo.png" alt="Tezpay.jpg" class="third-width">
+                <a href="/">
+                    <img src="/images/logo.png" alt="Tezpay.jpg" class="third-width">
+                </a>
             </div>
             <div class="card-body" style="padding: 0.50rem">
                 <!--{{ link }}-->
@@ -49,10 +51,11 @@
                         </div>
                     </div>
 
-                <div class="row" v-if="link">
+                <div class="row" v-else>
                     <div class="form-group col-12 text-center">
                         <h1 class="form-label"> Oops!</h1> <br>
-                        <label class="form-label"> Product not found</label>
+                        <label class="form-label"> Product not found</label><br>
+                        <label class="form-label"> Click <a href="/"> here </a> to create new one</label>
                     </div>
                 </div>
 
