@@ -16,14 +16,14 @@
                         <div class="form-group col-6">
                             <label class="form-label"> Currency </label>
                             <select v-model="data.currency"  class="form-control" required>
-                                <option value="tezos">TEZOS</option>
+                                <option value="tezos">XTZ</option>
                                 <option value="usd" selected>USD</option>
                             </select>
                         </div>
 
                         <div class="form-group col-6">
                             <label class="form-label"> Price </label>
-                            <input v-model="data.price" type="number" class="form-control" required>
+                            <input v-model="data.price" type="number" class="form-control" required step="0.01" placeholder="10.00">
                         </div>
 
                         <div class="form-group col-12">
@@ -40,7 +40,10 @@
 
 
                         <div class="form-group col-12 ">
-                            <button class="btn btn-primary form-control btn-lg btn-custom" type="submit">Create shortlink</button>
+                            <button class="btn btn-primary form-control btn-lg btn-custom" type="submit" :disabled="loading">
+                                <span v-show="!loading">Create shortlink</span>
+                                <span v-show="loading">Please wait</span>
+                            </button>
                         </div>
 
 
@@ -67,7 +70,8 @@
                     address: ''
                 },
 
-                validTezos: 0
+                validTezos: 0,
+                loading: false
             }
         },
         mounted() {
@@ -81,6 +85,8 @@
                     this.validTezos = 1;
                     return;
                 }
+
+                this.loading = true;
 
                 axios.post("/link/store", this.data )
                  .then((response) => {
